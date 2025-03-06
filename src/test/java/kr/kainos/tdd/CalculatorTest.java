@@ -1,17 +1,25 @@
 package kr.kainos.tdd;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
+
+  private Calculator calculator;
+
+  @BeforeEach
+  void setUp() {
+    calculator = new Calculator();
+  }
+
   @Test
   void createCalculator() {
-    new Calculator();
   }
 
   @Test
   void testAddition() {
-    Calculator calculator = new Calculator();
+    Calculator calculator = this.calculator;
     int result = calculator.addition(2, 3);
 
     assertEquals(5, result);
@@ -19,7 +27,7 @@ class CalculatorTest {
 
   @Test
   void testAdditionWithZero() {
-    Calculator calculator = new Calculator();
+    Calculator calculator = this.calculator;
 
     assertEquals(3, calculator.addition(0, 3));
     assertEquals(2, calculator.addition(2, 0));
