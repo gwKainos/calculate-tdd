@@ -1,7 +1,13 @@
+package kr.kainos.tdd;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
+  @Test
+  void createCalculator() {
+    new Calculator();
+  }
 
   @Test
   void testAddition() {
