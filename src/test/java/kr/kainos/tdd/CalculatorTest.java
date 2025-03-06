@@ -15,43 +15,21 @@ class CalculatorTest {
 
   @Test
   void testAddition() {
-    int result = calculator.addition(2, 3);
-
-    assertEquals(5, result);
-  }
-
-  @Test
-  void testAdditionWithZero() {
-    assertEquals(3, calculator.addition(0, 3));
-    assertEquals(2, calculator.addition(2, 0));
-  }
-
-  @Test
-  void testAdditionWithNegativeNumbers() {
-    assertEquals(-1, calculator.addition(-2, 1));
-    assertEquals(-5, calculator.addition(-2, -3));
-  }
-
-  @Test
-  void testAdditionWithLargeNumbers() {
-    assertEquals(2000000000, calculator.addition(1000000000, 1000000000));
+    assertEquals(8.6, calculator.calculate("3.6 + 5"), 0.0001);
   }
 
   @Test
   void testSubtraction() {
-    int result = 5 - 3;
-    assertEquals(2, result);
+    assertEquals(-2.3, calculator.calculate("3.4 - 5.7"), 0.0001);
   }
 
   @Test
   void testMultiplication() {
-    int result = 5 * 3;
-    assertEquals(15, result);
+    assertEquals(15.0, calculator.calculate("5 * 3"), 0.0001);
   }
 
   @Test
   void testDivision() {
-    int result = 6 / 3;
-    assertEquals(2, result);
+    assertEquals(2.0, calculator.calculate("6 / 3"), 0.0001);
   }
 }
