@@ -13,13 +13,18 @@ public class Calculator {
       throw new IllegalArgumentException("Invalid input format");
     }
 
+    double operand1 = Double.parseDouble(matcher.group(1));
     String operator = matcher.group(3);
+    double operand2 = Double.parseDouble(matcher.group(4));
 
     return switch (operator) {
-      case "+" -> 8.6;
-      case "-" -> -2.3;
-      case "*" -> 15.0;
-      case "/" -> 2.0;
+      case "+" -> operand1 + operand2;
+      case "-" -> operand1 - operand2;
+      case "*" -> operand1 * operand2;
+      case "/" -> {
+        if (operand2 == 0) throw new ArithmeticException("Cannot divide by zero");
+        yield operand1 / operand2;
+      }
       default -> throw new IllegalArgumentException("Invalid operator: " + operator);
     };
   }
