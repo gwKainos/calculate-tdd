@@ -19,6 +19,24 @@ class CalculatorTest {
   }
 
   @Test
+  void testAdditionWithZero() {
+    assertEquals(3.0, calculator.calculate("0 + 3"), 0.0001);
+    assertEquals(2.0, calculator.calculate("2+0"), 0.0001);
+  }
+
+  @Test
+  void testAdditionWithNegativeNumbers() {
+    assertEquals(-1, calculator.calculate("-2+1"), 0.0001);
+    assertEquals(-5, calculator.calculate("-2 +-3"), 0.0001);
+  }
+
+  @Test
+  void testAdditionWithLargeNumbers() {
+    assertEquals(2000000000, calculator.calculate("1000000000 + 1000000000"));
+  }
+
+
+  @Test
   void testSubtraction() {
     assertEquals(-2.3, calculator.calculate("3.4 - 5.7"), 0.0001);
   }

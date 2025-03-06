@@ -5,6 +5,22 @@ import java.util.regex.Pattern;
 
 public class Calculator {
 
+  public static void main(String[] args) {
+    if (args.length == 0) {
+      System.out.println("Usage: java Calculator \"<expression>\"");
+      return;
+    }
+
+    String expression = String.join(" ", args);
+    Calculator calculator = new Calculator();
+    try {
+      double result = calculator.calculate(expression);
+      System.out.println("Result: " + result);
+    } catch (Exception e) {
+      System.out.println("Error: " + e.getMessage());
+    }
+  }
+
   public double calculate(String expression) {
     Pattern pattern = Pattern.compile("(-?\\d+(\\.\\d+)?)\\s*([+\\-*/])\\s*(-?\\d+(\\.\\d+)?)");
     Matcher matcher = pattern.matcher(expression);
@@ -22,7 +38,9 @@ public class Calculator {
       case "-" -> operand1 - operand2;
       case "*" -> operand1 * operand2;
       case "/" -> {
-        if (operand2 == 0) throw new ArithmeticException("Cannot divide by zero");
+        if (operand2 == 0) {
+          throw new ArithmeticException("Cannot divide by zero");
+        }
         yield operand1 / operand2;
       }
       default -> throw new IllegalArgumentException("Invalid operator: " + operator);
