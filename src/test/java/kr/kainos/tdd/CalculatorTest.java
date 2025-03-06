@@ -18,6 +18,14 @@ class CalculatorTest {
   }
 
   @Test
+  void testAdditionWithZero() {
+    Calculator calculator = new Calculator();
+
+    assertEquals(3, calculator.addition(0, 3));
+    assertEquals(2, calculator.addition(2, 0));
+  }
+
+  @Test
   void testSubtraction() {
     int result = 5 - 3;
     assertEquals(2, result);
