@@ -14,10 +14,6 @@ class CalculatorTest {
   }
 
   @Test
-  void createCalculator() {
-  }
-
-  @Test
   void testAddition() {
     Calculator calculator = this.calculator;
     int result = calculator.addition(2, 3);
