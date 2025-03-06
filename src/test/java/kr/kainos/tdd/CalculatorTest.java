@@ -15,7 +15,6 @@ class CalculatorTest {
 
   @Test
   void testAddition() {
-    Calculator calculator = this.calculator;
     int result = calculator.addition(2, 3);
 
     assertEquals(5, result);
@@ -23,8 +22,6 @@ class CalculatorTest {
 
   @Test
   void testAdditionWithZero() {
-    Calculator calculator = this.calculator;
-
     assertEquals(3, calculator.addition(0, 3));
     assertEquals(2, calculator.addition(2, 0));
   }
