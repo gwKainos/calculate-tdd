@@ -27,6 +27,17 @@ class CalculatorTest {
   }
 
   @Test
+  void testAdditionWithNegativeNumbers() {
+    assertEquals(-1, calculator.addition(-2, 1));
+    assertEquals(-5, calculator.addition(-2, -3));
+  }
+
+  @Test
+  void testAdditionWithLargeNumbers() {
+    assertEquals(2000000000, calculator.addition(1000000000, 1000000000));
+  }
+
+  @Test
   void testSubtraction() {
     int result = 5 - 3;
     assertEquals(2, result);
